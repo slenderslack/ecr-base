@@ -2,13 +2,13 @@
 
 docker build \
   --build-arg REVISION=$(git rev-parse HEAD) \
-  --build-arg SOURCE=Dockerfile.base \
+  --build-arg SOURCE=base/Dockerfile \
   -t "$ECR_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/base:latest" \
   -f base/Dockerfile .
 
 docker build \
   --build-arg REVISION=$(git rev-parse HEAD) \
-  --build-arg SOURCE=Dockerfile.service \
+  --build-arg SOURCE=service/Dockerfile \
   -t "$ECR_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/service:latest" \
   -f service/Dockerfile .
 
