@@ -1,6 +1,6 @@
 #!/bin/bash
 
-~/atomist/slimslenderslacks/bb_scripts/bump_version.clj
+bump_version.clj base/Dockerfile
 git commit -am 'bump'
 git push origin
 ./build-ecr.sh

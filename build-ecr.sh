@@ -12,9 +12,9 @@ docker build \
   -t "$ECR_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/service:latest" \
   -f service/Dockerfile .
 
-aws ecr get-login-password --region us-east-1 --profile sts | docker login --username AWS --password-stdin 111664719423.dkr.ecr.us-east-1.amazonaws.com
+aws ecr get-login-password --region us-east-1 --profile sts | docker login --username AWS --password-stdin "$ECR_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com"
 
 docker push "$ECR_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/base:latest"
 
-#docker push "$ECR_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/service:latest"
+docker push "$ECR_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/service:latest"
 
