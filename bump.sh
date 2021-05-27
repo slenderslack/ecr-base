@@ -1,8 +1,8 @@
 #!/bin/bash -i
 
-unpin.clj base/Dockerfile
-unpin.clj service/Dockerfile
-bump_version.clj base/Dockerfile
+atm-bb unpin base/Dockerfile
+atm-bb unpin service/Dockerfile
+atm-bb bump_version base/Dockerfile
 git commit -am 'bump'
 git push origin
 ./build-ecr.sh
