@@ -1,7 +1,7 @@
 FROM ubuntu:devel
-ARG REVISION
-ARG SOURCE
-LABEL org.opencontainers.image.revision=$REVISION
-LABEL org.opencontainers.image.source=$SOURCE
-RUN echo '{:version 52}' > dog.json
+# ARG REVISION
+# ARG SOURCE
+# LABEL org.opencontainers.image.revision=$REVISION
+# LABEL org.opencontainers.image.source=$SOURCE
+RUN echo '{:version 53}' > dog.json
 CMD ["cat", "dog.json"]
