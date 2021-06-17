@@ -3,5 +3,5 @@ FROM ubuntu:devel
 # ARG SOURCE
 # LABEL org.opencontainers.image.revision=$REVISION
 # LABEL org.opencontainers.image.source=$SOURCE
-RUN echo '{:version 64}' > dog.json
+RUN echo '{:version 65}' > dog.json
 CMD ["cat", "dog.json"]
