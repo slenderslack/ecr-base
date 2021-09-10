@@ -13,7 +13,7 @@ phases:
       - docker login -u slimslenderslacks --password-stdin < .docker.key
       - rm .docker.key
       - docker build -t base:latest --label "org.opencontainers.image.revision=$CODEBUILD_RESOLVED_SOURCE_VERSION" --label "org.opencontainers.image.source=base/Dockerfile" -f base/Dockerfile .
-      - docker tag base:latest $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/base:latest      
+      - docker tag base:latest "$AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/base:$CODEBUILD_WEBHOOK_BASE_REF"
       # - echo Building the service Docker image...
       # - docker build -t service:latest --label "org.opencontainers.image.revision=$CODEBUILD_RESOLVED_SOURCE_VERSION" --label "org.opencontainers.image.source=service/Dockerfile" -f service/Dockerfile .
       # - docker tag service:latest $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/service:latest
@@ -21,5 +21,5 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/base:latest
+      - docker push "$AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/base:$CODEBUILD_WEBHOOK_BASE_REF"
       # - docker push $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/service:latest
