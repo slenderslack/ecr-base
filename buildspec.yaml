@@ -15,7 +15,7 @@ phases:
       - docker build -t base:latest --label "org.opencontainers.image.revision=$CODEBUILD_RESOLVED_SOURCE_VERSION" --label "org.opencontainers.image.source=base/Dockerfile" -f base/Dockerfile .
       - docker tag base:latest $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/base:latest      
       - echo Building the service Docker image...
-      - docker built -t service:latest --label "org.opencontainers.image.revision=$CODEBUILD_RESOLVED_SOURCE_VERSION" --label "org.opencontainers.image.source=service/Dockerfile" -f service/Dockerfile .
+      - docker build -t service:latest --label "org.opencontainers.image.revision=$CODEBUILD_RESOLVED_SOURCE_VERSION" --label "org.opencontainers.image.source=service/Dockerfile" -f service/Dockerfile .
       - docker tag service_latest $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/service:latest
   post_build:
     commands:
