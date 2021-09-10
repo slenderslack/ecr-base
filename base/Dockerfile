@@ -3,5 +3,5 @@ FROM ubuntu:devel@sha256:5780eeea246d5e8e76c20dfedf03d4d9568cd4ba00af5a7e3762b69
 # ARG SOURCE
 # LABEL org.opencontainers.image.revision=$REVISION
 # LABEL org.opencontainers.image.source=$SOURCE
-RUN echo '{:version 97}' > dog.json
+RUN echo '{:version 98}' > dog.json
 CMD ["cat", "dog.json"]
